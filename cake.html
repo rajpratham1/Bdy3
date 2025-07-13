@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cake Ceremony</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="page-cake">
+    <div class="cake-ceremony-container">
+        <h1>Time to Cut the Cake!</h1>
+
+        <div class="cake-scene" id="cakeScene">
+            <div class="candles-container">
+                <div class="candle">
+                    <div class="flame"></div>
+                </div>
+                <div class="candle">
+                    <div class="flame"></div>
+                </div>
+                <div class="candle">
+                    <div class="flame"></div>
+                </div>
+            </div>
+
+            <div class="cake-img-wrapper">
+                <img src="cake.webp" alt="Birthday Cake" class="birthday-cake-img">
+            </div>
+            
+            <div class="cake-message" id="cakeMessage">
+                <p>Happy Birthday!</p>
+            </div>
+        </div>
+
+        <button class="next-btn cut-cake-btn" id="cutCakeBtn">
+            <i class="fas fa-utensils"></i> Cut the Cake
+        </button>
+    </div>
+
+    <audio id="sliceSound" src="WhatsApp Audio 2025-07-13 at 20.06.55_18b583b0.mp3" preload="auto"></audio>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
