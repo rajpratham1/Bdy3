@@ -1,0 +1,413 @@
+/* --- General Styles --- */
+body {
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    color: #333;
+    background-color: #fff8e1;
+}
+
+.next-btn {
+    padding: 15px 30px;
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s;
+    margin-top: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.next-btn:hover {
+    background-color: #e55e53;
+    transform: scale(1.05);
+}
+
+/* --- Countdown Page (index.html) --- */
+.page-countdown {
+    background: linear-gradient(to right, #ffdde1, #fcfcfc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.countdown-container {
+    text-align: center;
+}
+
+.countdown-timer {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12em;
+    font-weight: 900;
+    color: #e91e63;
+    animation: scaleIn 0.8s ease-out forwards;
+}
+
+.ready-message {
+    font-size: 1.5em;
+    color: #6a1b9a;
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+@keyframes scaleIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    80% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+/* --- Celebration Page (celebration.html) --- */
+.page-celebration {
+    background: linear-gradient(to bottom, #87ceeb, #f0f8ff);
+    min-height: 100vh;
+    overflow: hidden; 
+    position: relative;
+}
+
+.celebration-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.celebration-message h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4em;
+    color: #ff1493;
+    animation: fadeInDown 1.5s ease-out;
+}
+
+/* Balloon and Star animation base styles */
+.balloon, .star {
+    position: absolute;
+    bottom: -100px;
+    animation-timing-function: linear;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+/* Balloon Specifics */
+.balloon {
+    width: 60px;
+    height: 80px;
+    background-color: #ff6f61;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+}
+
+/* Star Specifics */
+.star {
+    font-size: 2em;
+    color: #ffd700;
+    animation: floatUpStars 15s linear infinite;
+}
+
+/* Animations Keyframes */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatUp { /* Used for balloons */
+    0% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+    100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+}
+
+@keyframes floatUpStars {
+    0% { transform: translateY(0); opacity: 0.8; }
+    100% { transform: translateY(-120vh); opacity: 0; }
+}
+
+/* --- Cake Ceremony Page (cake.html) --- */
+.page-cake {
+    background-color: #fce4ec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.cake-ceremony-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 800px;
+}
+
+.cake-ceremony-container h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5em;
+    color: #e91e63;
+    margin-bottom: 30px;
+}
+
+.cake-scene {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.birthday-cake-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 15px 10px rgba(0,0,0,0.2));
+}
+
+.cut-cake-btn {
+    animation: bounce 2s infinite ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Candles and Flames */
+.candles-container {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    z-index: 5;
+}
+
+.candle {
+    width: 12px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 4px;
+    position: relative;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
+}
+
+.flame {
+    position: absolute;
+    width: 8px;
+    height: 20px;
+    background: #ffcc00;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px #ff9800, 0 0 20px #ff5722;
+    animation: flameFlicker 0.5s infinite alternate;
+}
+
+@keyframes flameFlicker {
+    0% { transform: translateX(-50%) scale(1); opacity: 1; }
+    100% { transform: translateX(-50%) scale(1.05); opacity: 0.8; }
+}
+
+.cake-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    display: none;
+    font-family: 'Dancing Script', cursive;
+    font-size: 2em;
+    color: #e91e63;
+    z-index: 15;
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}
+
+/* --- Diary Page (diary.html) --- */
+.page-diary {
+    background-color: #ffebee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.diary-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    text-align: center;
+}
+
+.diary-container h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3em;
+    color: #e91e63;
+    margin-bottom: 30px;
+}
+
+.heart-frame-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+/* Heart Frame Styling using pseudo-elements */
+.heart-frame {
+    position: relative;
+    width: 500px;
+    height: 450px;
+    background-color: #ffe0e0;
+    transform: rotate(45deg);
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+    border-radius: 5px;
+    
+    /* Create the heart shape */
+    &::before, &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: #ffe0e0;
+    }
+
+    &::before {
+        top: -50%;
+        left: 0;
+    }
+
+    &::after {
+        top: 0;
+        right: 50%;
+    }
+}
+
+.heart-content {
+    /* To display content within the heart shape */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    width: 80%;
+    height: 80%;
+    padding: 30px;
+    text-align: left;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+    font-family: 'Playfair Display', serif;
+    color: #4a4a4a;
+    line-height: 1.6;
+    overflow-y: auto;
+}
+
+.diary-date {
+    font-style: italic;
+    font-size: 0.9em;
+    color: #999;
+}
+
+/* --- Gallery Page (gallery.html) --- */
+.page-gallery {
+    background-color: #f8f0e3;
+    padding: 50px 20px;
+}
+
+.gallery-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.gallery-container h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4em;
+    color: #4a148c;
+    margin-bottom: 10px;
+}
+
+.gallery-intro {
+    font-size: 1.2em;
+    color: #6a1b9a;
+    margin-bottom: 40px;
+}
+
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.gallery-card {
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+    cursor: pointer;
+}
+
+.gallery-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Quote Overlay */
+.quote-overlay {
+    padding: 20px;
+    background-color: #fff;
+    border-top: 5px solid #ff6f61;
+}
+
+.quote-overlay p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.1em;
+    color: #444;
+    margin: 0;
+}
+
+.final-message {
+    margin-top: 80px;
+    padding: 40px;
+    background-color: #fce4ec;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.final-message h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3em;
+    color: #e91e63;
+}
+
+.final-message p {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 30px;
+}
